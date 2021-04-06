@@ -1,20 +1,19 @@
-const mongoose = require('mongoose')
-require('dotenv').config()
+const mongoose = require("mongoose");
 
-mongoose.connect(process.env.MONGODB_URI, {
+const connectionString =
+    process.env.MONGODB_URI || "mongodb://localhost:27017/gamelib";
+const configOptions = {
     useNewUrlParser: true,
+    useCreateIndex: true,
     useUnifiedTopology: true,
-    useCreateIndex: true
-})
+    useFindAndModify: false,
+};
 
-mongoose.connection.on('connected', () => {
-    console.log('Mongoose connected')
-})
+mongoose
+    .connect(connectionString, configOptions)
+    .then(() => console.log("MongoDB successfully connected..."))
+    .catch((err) => console.log(`MongoDB connection error: ${err}`));
 
-mongoose.connection.on('error', (err) => {
-    console.log(`Mongoose connected error ${err}`)
-})
-
-mongoose.connection.on('disconnected', () => {
-    console.log('Mongoose disconnected')
-})
+module.exports = {
+    User: require("./User"),
+};

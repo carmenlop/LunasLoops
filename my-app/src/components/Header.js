@@ -30,41 +30,25 @@ const Header = () => {
                 <Link to={'/'}>Luna's Loops</Link>
             </div>
             <div className='links'>
+                <ul>
                 { user ? (
-                    <div>
-                        <Dropdown
-                            id="Dropdown_6"
-                            options={{
-                                alignment: 'left',
-                                autoTrigger: true,
-                                closeOnClick: true,
-                                constrainWidth: true,
-                                container: null,
-                                coverTrigger: true,
-                                hover: false,
-                                inDuration: 150,
-                                onCloseEnd: null,
-                                onCloseStart: null,
-                                onOpenEnd: null,
-                                onOpenStart: null,
-                                outDuration: 250
-                            }}
-                            trigger={<Button node="button">My Account</Button>}
-                        >
-                            <Link to={'/snapshot'}>Snapshot</Link>
-                            <Link to={'/clients'}>Clients</Link>
-                            <Link to={'/pets'}>Pets</Link>
-                            <Link to={'/walk-history'}>Walk History</Link>
-                            <Link to={'/walk-schedule'}>Walk Schedule</Link>
-                        </Dropdown>
+                    <>
+                        
+                            <li><Link to={'/snapshot'}>Snapshot</Link></li>
+                            <li><Link to={'/clients'}>Clients</Link></li>
+                            <li><Link to={'/pets'}>Pets</Link></li>
+                            <li><Link to={'/walk-history'}>Walk History</Link></li>
+                            <li><Link to={'/walk-schedule'}>Walk Schedule</Link></li>
+                        
                         <button className='btn' onClick={ logout }>Log Out</button>
-                    </div>
+                    </>
                 ) : (
-                    <div>
-                        <Link to={'/login'}>Log In</Link>
-                        <Link to={'/register'}>Register</Link>
-                    </div>
+                    <>
+                        <li><Link to={'/login'}>Log In</Link></li>
+                        <li><Link to={'/register'}>Register</Link></li>
+                    </>
                 )}
+                </ul>
             </div>
         </header>
     )

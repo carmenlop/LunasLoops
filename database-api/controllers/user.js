@@ -29,9 +29,10 @@ const register = async (req, res) => {
 }
 
 const login = async (req, res) => {
+    console.log(req)
     try {
         const foundUser = await db.User.findOne({ email: req.body.email }).select("+password")
-
+        // console.log(foundUser)
         if (!foundUser) {
             return res
                 .status(400)
@@ -69,9 +70,10 @@ const login = async (req, res) => {
 
 const profile = async (req, res) => {
     try {
-        const foundUser = await db.User.findById(req.createdUser)
+        const foundUser = await db.User.findById(req.userId)
+        console.log(foundUser)
 
-        res.json({ headers: req.headers, user: foundUser })
+        return res.json({ headers: req.headers, user: foundUser })
     } catch (error) {
         return res.status(500).json({
             status: 500,
@@ -79,6 +81,8 @@ const profile = async (req, res) => {
         })
     }
 }
+
+
 
 module.exports = {
     register,

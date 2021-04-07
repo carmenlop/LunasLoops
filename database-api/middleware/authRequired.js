@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 
 module.exports = async (req, res, next) => {
-    const bearerHeader = req.header['authorization']
+    const bearerHeader = req.headers['authorization']
     if (typeof bearerHeader !== 'undefined') {
         const token = bearerHeader.split(" ")[1]
         jwt.verify(token, 'supersecret', function (err, payload) {

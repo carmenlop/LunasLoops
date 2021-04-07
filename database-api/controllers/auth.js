@@ -14,7 +14,7 @@ const register = async (req, res) => {
 
         const salt = await bcrypt.genSalt(10);
         const hash = await bcrypt.hash(req.body.password.salt)
-        const createdUser = await db.User.creat({ ...req.body, password: has })
+        const createdUser = await db.User.create({ ...req.body, password: hash })
 
         return res
             .status(201)

@@ -13,8 +13,10 @@ function Login(props) {
     function handleSubmit(event) {
         event.preventDefault()
         AuthModel.login({ email, password }).then((response) => {
+            console.log(response)
             localStorage.setItem('uid', response.signedJwt)
             AuthModel.verify().then((response) => {
+                console.log(response)
                 setUser(response.user)
                 props.history.push('/snapshot')
             })

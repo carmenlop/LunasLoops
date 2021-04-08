@@ -13,6 +13,7 @@ app.use(cors())
 
 // middleware - API routes
 app.use('/api/auth', routes.auth);
+app.use('/api/clients', routes.clients)
 
 // connection
 app.listen(port, () => console.log(`Server is running on port ${port}`))

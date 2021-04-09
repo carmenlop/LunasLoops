@@ -24,7 +24,7 @@ const showClient = (req, res) => {
                 .status(200)
                 .json({ message: 'Client with provided Id is not found'})
         }
-
+        console.log(foundClient)
         res.status(200).json({ client: foundClient })
     })
 }

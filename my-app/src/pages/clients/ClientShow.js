@@ -5,6 +5,7 @@ import ClientCard from '../../components/ClientCard'
 
 function ClientShow(props) {
     const [client] = useClients(props.match.params.id)
+    console.log(client)
 
     return (
         <div>

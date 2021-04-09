@@ -6,6 +6,7 @@ class ClientModel {
     }
 
     static show = (clientId) => {
+        console.log('clien model show', clientId)
         return fetch(`${url}/clients/${clientId}`).then(res => res.json())
     }
 

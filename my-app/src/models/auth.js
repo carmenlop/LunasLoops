@@ -21,7 +21,6 @@ class AuthModel {
             },
             body: JSON.stringify(data)
         }).then((response) => {
-            console.log(response)
             return response.json()
         })
     }
@@ -30,7 +29,6 @@ class AuthModel {
         return fetch(`${URL}/auth/profile`, {
             headers: { authorization: `Bearer ${ localStorage.uid }`}
         }).then((response) => {
-            console.log('****', response)
             return response.json()
         })
     }

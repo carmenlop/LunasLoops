@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import ClientCard from '../../components/ClientCard'
+import useClients from '../../hooks/useClients'
 
 
 function ClientList(props) {

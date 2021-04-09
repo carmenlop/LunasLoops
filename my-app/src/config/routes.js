@@ -6,6 +6,8 @@ import{ loggedInState } from '../recoil/selectors'
 
 import Home from '../pages/Home'
 import ClientList from '../pages/clients/ClientList'
+import ClientShow from '../pages/clients/ClientShow'
+import NewClient from '../pages/clients/NewClient'
 import Pets from '../pages/Pets'
 import Snapshot from '../pages/Snapshot'
 import WalkHistory from '../pages/WalkHistory'
@@ -24,6 +26,8 @@ const Routes = () => {
             { loggedIn && (
                 <Switch>
                     <Route exact path='/clients' component={ ClientList } />
+                    <Route exact path='/clients/:id' component={ ClientShow } />
+                    <Route exact path='/clients/new' component={ NewClient } />
                     <Route exact path='/pets' component={ Pets } />
                     <Route exact path='/snapshot' component={ Snapshot } />
                     <Route exact path='/walk-history' component={ WalkHistory } />

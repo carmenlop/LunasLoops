@@ -7,7 +7,7 @@ const indexClient = (req, res) => {
             return res.status(500).json({ message: 'Error, please try again' })
         }
 
-        if (!foundClients.length) {
+        if (!foundClients) {
             return res.status(200).json({ message: "No Clients Found in database." })
         }
 
@@ -16,6 +16,7 @@ const indexClient = (req, res) => {
 }
 
 const showClient = (req, res) => {
+    console.log('controllers req', req)
     db.Client.findById(req.params.id, (err, foundClient) => {
         if (err) console.log('Error in client#show:', err)
 
@@ -24,7 +25,7 @@ const showClient = (req, res) => {
                 .status(200)
                 .json({ message: 'Client with provided Id is not found'})
         }
-        console.log(foundClient)
+        console.log('controllers foundClient', foundClient)
         res.status(200).json({ client: foundClient })
     })
 }

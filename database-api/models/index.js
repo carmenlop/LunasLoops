@@ -16,5 +16,6 @@ mongoose
 
 module.exports = {
     User: require("./User"),
-    Client: require('./client')
+    Client: require('./client'),
+    WalkSchedule: require('./walkSchedule')
 };

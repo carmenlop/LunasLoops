@@ -1,6 +1,6 @@
 const db = require('../models')
 
-const indexClient = (req, res) => {
+const index = (req, res) => {
     db.Client.find({}, (err, foundClients) => {
         if (err) {
             console.log('Error in clients#index:', err)
@@ -15,7 +15,7 @@ const indexClient = (req, res) => {
     })
 }
 
-const showClient = (req, res) => {
+const show = (req, res) => {
     console.log('controllers req', req)
     db.Client.findById(req.params.id, (err, foundClient) => {
         if (err) console.log('Error in client#show:', err)
@@ -30,7 +30,7 @@ const showClient = (req, res) => {
     })
 }
 
-const createClient = (req, res) => {
+const create = (req, res) => {
     db.Client.create(req.body, (err, savedClient) => {
         if (err) console.log("Error in clients#create:", err)
 
@@ -38,7 +38,7 @@ const createClient = (req, res) => {
     })
 }
 
-const updateClient = (req, res) => {
+const update = (req, res) => {
     db.Client.findByIdAndUpdate(
         req.params.id,
         req.body,
@@ -57,7 +57,7 @@ const updateClient = (req, res) => {
     )
 }
 
-const destroyClient = (req, res) => {
+const destroy = (req, res) => {
     db.Client.findByIdAndDelete(req.params.id, (err, deletedClient ) => {
         if (err) console.log('Error in client#destroy:', err)
 
@@ -72,9 +72,9 @@ const destroyClient = (req, res) => {
 }
 
 module.exports = {
-    indexClient,
-    showClient,
-    createClient,
-    updateClient,
-    destroyClient
+    index,
+    show,
+    create,
+    update,
+    destroy
 }

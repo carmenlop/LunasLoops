@@ -15,6 +15,14 @@ const index = (req, res) => {
     })
 }
 
+const create = (req, res) => {
+    db.WalkSchedule.create(req.body, (err, savedWalkSchedule) => {
+        if (err) console.log("Error in walkschedule#create:", err)
+
+        res.status(201).json({ walkSchedule: savedWalkSchedule })
+    })
+}
+
 const show = (req, res) => {
     console.log('controllers req', req)
     db.WalkSchedule.findById(req.params.id, (err, foundWalkSchedule) => {
@@ -27,14 +35,6 @@ const show = (req, res) => {
         }
         console.log('controllers foundWalkSchedule', foundWalkSchedule)
         res.status(200).json({ walkSchedule: foundWalkSchedule })
-    })
-}
-
-const create = (req, res) => {
-    db.WalkSchedule.create(req.body, (err, savedWalkSchedule) => {
-        if (err) console.log("Error in walkschedule#create:", err)
-
-        res.status(201).json({ walkSchedule: savedWalkSchedule })
     })
 }
 

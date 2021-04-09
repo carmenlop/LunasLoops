@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import WalkScheduleModel from '../../models/walkSchedule'
 
-function WalkScheduleNew(props) {
-    const [walkDate, setWalkDate] = useState("")
-    const [startTime, setStartTime] = useState("")
+function WalkScheduleNew({props}) {
+    const [walkDate, setWalkDate] = useState("1")
+    const [startTime, setStartTime] = useState("1")
     const [duration, setDuration] = useState(0)
 
     function handleSubmit(event) {
@@ -20,8 +20,9 @@ function WalkScheduleNew(props) {
             <h1>New Walk</h1>
             <form onSubmit={handleSubmit}>
                 <div className='form-input'>
-                    <label htmlFor='walkDate'>Walk Date</label>
-                    <input type='text' name='walkDate' onChange={(e) => setWalkDate(e.target.value)} value={walkDate} />
+                    <label htmlFor='walkDate'>Walk Date
+                        <input type='text' name='walkDate' onChange={(e) => setWalkDate(e.target.value)} value={walkDate} />
+                    </label>
                 </div>
                 <div className='form-input'>
                     <label htmlFor='startTime'>Walk Time</label>
@@ -31,6 +32,7 @@ function WalkScheduleNew(props) {
                     <label htmlFor='duration'>Duration</label>
                     <input type='text' name='duration' onChange={(e) => setDuration(e.target.value)} value={duration} />
                 </div>
+                <input type="submit" value="Submit" />
             </form>
         </div>
     )

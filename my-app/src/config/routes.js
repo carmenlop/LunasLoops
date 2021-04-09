@@ -44,8 +44,8 @@ const Routes = () => {
                     <Route exact path='/walk-history' component={ WalkHistory } />
 
                     <Route exact path='/walk-schedule' component={ WalkScheduleList } />
-                    <Route exact path='/walk-schedule/:id' component={ WalkScheduleShow } />
                     <Route exact path='/walk-schedule/new' component={ WalkScheduleNew } />
+                    <Route exact path='/walk-schedule/:id' component={ WalkScheduleShow } />
                 </Switch>
             ) }
         </Switch>

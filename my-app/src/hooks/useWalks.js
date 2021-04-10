@@ -18,6 +18,7 @@ function useWalkSchedule(walkScheduleId) {
 
     useEffect(
         function () {
+            console.log('we made it')
             fetchWalkSchedule(walkScheduleId)
         },
         [walkScheduleId]

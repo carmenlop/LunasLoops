@@ -4,12 +4,13 @@ import useClients from '../../hooks/useClients'
 import ClientCard from '../../components/ClientCard'
 
 function ClientShow(props) {
-    const [client] = useClients(props.match.params.id)
-    console.log(client)
+    const [clients] = useClients(props.match.params.id)
+    console.log('props id', props.match.params.id)
+    console.log('client page', clients)
 
     return (
         <div>
-            <ClientCard {...client} />
+            <ClientCard {...clients} />
         </div>
     )
 }

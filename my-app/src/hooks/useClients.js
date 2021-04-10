@@ -11,7 +11,7 @@ function useClients(clientId) {
             console.log('HookIf', id)
             ClientModel.show(id).then((data) => {
                 console.log('Hook If data', data)
-                setClients(data.client)
+                setClients(data.clients)
             })
         } else {
             ClientModel.all().then((data) => {

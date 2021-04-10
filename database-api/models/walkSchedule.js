@@ -14,6 +14,16 @@ const WalkScheduleSchema = new Schema({
         type: Number,
         required: true
     },
+    pet: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Pet',
+        required: true,
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        require: true,
+    }
 })
 
 module.exports = mongoose.model('WalkSchedule', WalkScheduleSchema)

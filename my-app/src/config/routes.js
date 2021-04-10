@@ -34,8 +34,8 @@ const Routes = () => {
             { loggedIn && (
                 <Switch>
                     <Route exact path='/clients' component={ ClientList } />
-                    <Route exact path='/clients/:id' component={ ClientShow } />
                     <Route exact path='/clients/new' component={ NewClient } />
+                    <Route exact path='/clients/:id' component={ ClientShow } />
 
                     <Route exact path='/pets' component={ Pets } />
 

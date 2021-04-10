@@ -1,7 +1,12 @@
 import React from 'react'
 
 const ClientCard = (props) => {
-    const address = `${props.address.street}, ${props.address.city} ${props.address.zip}`
+    const address = (props.address)
+    ?
+        `${props.address.street}, ${props.address.city} ${props.address.zip}`
+    :
+        '..'
+
     const petArray = props.pets
 
     function generateList(petArray) {
@@ -19,7 +24,7 @@ const ClientCard = (props) => {
                 <li>Email: {props.email}</li>
             </ul>
             <ul>Pets:
-                { petArray.length ? generateList(petArray) : "No pets"}
+                { (props.pets && petArray.length) ? generateList(petArray) : "No pets"}
             </ul>
             
         </div>

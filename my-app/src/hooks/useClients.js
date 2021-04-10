@@ -11,7 +11,7 @@ function useClients(clientId) {
             console.log('HookIf', id)
             ClientModel.show(id).then((data) => {
                 console.log('Hook If data', data)
-                setClients(data.clients)
+                setClients(data.client)
             })
         } else {
             ClientModel.all().then((data) => {
@@ -22,7 +22,7 @@ function useClients(clientId) {
     }
 
     useEffect(
-        function () {
+        () => {
             console.log('HookCheck', clientId)
             fetchClients(clientId)
         },

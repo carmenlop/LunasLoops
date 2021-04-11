@@ -7,13 +7,13 @@ const ClientCard = (props) => {
     :
         '..'
 
-    const petArray = props.pets
+    // const petArray = props.pets
 
-    function generateList(petArray) {
-        return petArray.map((pet, index) => (
-            <li key={ index }>{pet.name}</li>
-        ))
-    }
+    // function generateList(petArray) {
+    //     return petArray.map((pet, index) => (
+    //         <li key={ index }>{pet.name}</li>
+    //     ))
+    // }
 
     return (
         <div className='ClientCard'>
@@ -22,11 +22,8 @@ const ClientCard = (props) => {
                 <li>Phone Number: {props.phoneNumber}</li>
                 <li>Address: {address}</li>
                 <li>Email: {props.email}</li>
+                <li>Pet: {props.pet}</li>
             </ul>
-            <ul>Pets:
-                { (props.pets && petArray.length) ? generateList(petArray) : "No pets"}
-            </ul>
-            
         </div>
     )
 }

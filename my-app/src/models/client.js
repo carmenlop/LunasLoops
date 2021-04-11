@@ -19,6 +19,16 @@ class ClientModel {
             body: JSON.stringify(clientData)
         }).then(res => res.json())
     }
+
+    static update = (clientData, clientId) => {
+        return fetch(`${url}/clients/${clientId}`, {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(clientData)
+        }).then(res => res.json())
+    }
 }
 
 export default ClientModel

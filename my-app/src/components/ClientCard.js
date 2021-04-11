@@ -3,7 +3,7 @@ import React from 'react'
 const ClientCard = (props) => {
     const address = (props.address)
     ?
-        `${props.address.street}, ${props.address.city} ${props.address.zip}`
+        `${props.address}`
     :
         '..'
 

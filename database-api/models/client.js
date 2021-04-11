@@ -33,18 +33,8 @@ const ClientSchema = new Schema({
         match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
     },
     address: {
-        street: {
-            type: String,
-            required: true
-        },
-        city: {
-            type: String,
-            required: true
-        },
-        zip: {
-            type: String,
-            required: true
-        }
+        type: String,
+        required: true
     },
     pets: [PetSchema],
     user: {

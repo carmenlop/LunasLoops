@@ -7,7 +7,6 @@ import useClients from '../../hooks/useClients'
 
 function ClientList(props) {
     const [clients, fetchClients] = useClients()
-    console.log(clients)
 
     function generateList(clients) {
         return clients.map((client, index) => (

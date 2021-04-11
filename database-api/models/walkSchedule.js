@@ -14,9 +14,9 @@ const WalkScheduleSchema = new Schema({
         type: Number,
         required: true
     },
-    pet: {
+    client: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Pet',
+        ref: 'Client',
         required: true,
     },
     user: {

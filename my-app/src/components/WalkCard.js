@@ -15,7 +15,8 @@ const WalkCard = (props) => {
             <h3>{props.walkDate}</h3>
             <h3>{props.startTime}</h3>
             <h3>{props.duration}</h3>
-            <h3>{props.pet}</h3>
+            <h3>{props.client.pet}</h3>
+            <h3>{props.client}</h3>
         </div>
     )
 }

@@ -4,15 +4,12 @@ const Schema = mongoose.Schema
 const PetSchema = new Schema({
     name: {
         type: String,
-        required: true
     },
     breed: {
         type: String,
-        required: true
     },
     size: {
         type: String,
-        required: true
     }
 })
 

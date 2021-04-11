@@ -1,18 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const PetSchema = new Schema({
-    name: {
-        type: String,
-    },
-    breed: {
-        type: String,
-    },
-    size: {
-        type: String,
-    }
-})
-
 const ClientSchema = new Schema({
     firstName: {
         type: String,
@@ -36,7 +24,10 @@ const ClientSchema = new Schema({
         type: String,
         required: true
     },
-    pets: [PetSchema],
+    pet: {
+        type: String,
+        required: true
+    },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',

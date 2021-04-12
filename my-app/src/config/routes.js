@@ -10,11 +10,11 @@ import ClientList from '../pages/clients/ClientList'
 import ClientShow from '../pages/clients/ClientShow'
 import NewClient from '../pages/clients/NewClient'
 
-import Pets from '../pages/Pets'
+// import Pets from '../pages/Pets'
 
 import Snapshot from '../pages/Snapshot'
 
-import WalkHistory from '../pages/WalkHistory'
+// import WalkHistory from '../pages/WalkHistory'
 
 import WalkScheduleList from '../pages/walkSchedule/List'
 import WalkScheduleShow from '../pages/walkSchedule/Show'
@@ -37,11 +37,11 @@ const Routes = () => {
                     <Route exact path='/clients/new' component={ NewClient } />
                     <Route exact path='/clients/:id' component={ ClientShow } />
 
-                    <Route exact path='/pets' component={ Pets } />
+                    {/* <Route exact path='/pets' component={ Pets } /> */}
 
                     <Route exact path='/snapshot' component={ Snapshot } />
 
-                    <Route exact path='/walk-history' component={ WalkHistory } />
+                    {/* <Route exact path='/walk-history' component={ WalkHistory } /> */}
 
                     <Route exact path='/walk-schedule' component={ WalkScheduleList } />
                     <Route exact path='/walk-schedule/new' component={ WalkScheduleNew } />

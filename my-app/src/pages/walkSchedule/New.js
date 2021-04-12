@@ -43,8 +43,6 @@ function WalkScheduleNew({props}) {
             })
     }
 
-    let pizza = clientOptions(clients)
-    console.log('pizza', pizza)
     return (
         <div>
             <h1>New Walk</h1>
@@ -65,7 +63,7 @@ function WalkScheduleNew({props}) {
                 <div className='form-input'>
                     <label>Clients:</label>
                         <select value={client} name='client' onChange={(e) => setClient(e.target.value)}>
-                            {pizza ? pizza : clientOptions}
+                            {clientOptions(clients)}
                         </select>
                 </div>
                 <input type='submit' value='Save!' />

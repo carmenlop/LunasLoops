@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useRecoilState } from 'recoil'
+import { userState } from '../recoil/atoms'
+import AuthModel from '../models/auth'
 
 import ClientCard from '../components/ClientCard'
 import WalkCard from '../components/WalkCard'
@@ -9,6 +12,15 @@ import useWalkSchedule from '../hooks/useWalks'
 const Snapshot = () => {
     const [clients, fetchClients] = useClients()
     const [walkSchedule, fetchWalkSchedule] = useWalkSchedule()
+    const [user, setUser] = useRecoilState(userState)
+
+    useEffect(function () {
+        if (localStorage.getItem('uid')) {
+            AuthModel.verify().then((response) => {
+                setUser(response.user)
+            })
+        }
+    }, [])
 
     function generateClientList(clients) {
         return clients.map((client, index) => (
@@ -29,6 +41,7 @@ const Snapshot = () => {
     return (
         <div>
             <h1>Luna's Loops Snapshot Page!!</h1>
+            {user.username}
             { clients.length ? generateClientList(clients) : "No Clients"}
             { walkSchedule.length ? generateWalkList(walkSchedule) : "No Walks on Schedule"}
         </div>

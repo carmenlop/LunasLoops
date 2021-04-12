@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil'
 import { userState } from '../../recoil/atoms'
 import { useHistory } from 'react-router-dom'
 import AuthModel from '../../models/auth'
+import { Button } from 'react-bootstrap'
 
 
 function NewClient({props}) {
@@ -65,7 +66,7 @@ function NewClient({props}) {
                 </div>
 
 
-                <input type='submit' value='Save!' />
+                <Button variant='outline-success' type='submit'>Save!</Button>
             </form>
         </div>
     )

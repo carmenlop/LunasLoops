@@ -9,6 +9,8 @@ import WalkCard from '../components/WalkCard'
 import useClients from '../hooks/useClients'
 import useWalkSchedule from '../hooks/useWalks' 
 
+import { Container, Row, Col} from 'react-bootstrap'
+
 const Snapshot = () => {
     const [clients, fetchClients] = useClients()
     const [walkSchedule, fetchWalkSchedule] = useWalkSchedule()
@@ -39,12 +41,20 @@ const Snapshot = () => {
     }
 
     return (
-        <div>
-            <h1>Luna's Loops Snapshot Page!!</h1>
-            {user.username}
-            { clients.length ? generateClientList(clients) : "No Clients"}
-            { walkSchedule.length ? generateWalkList(walkSchedule) : "No Walks on Schedule"}
-        </div>
+        <Container>
+            <Row>
+                <Col>Luna's Loops Snapshot Page!!</Col>
+                <Col>{user.username}</Col>
+            </Row>
+            <Row>
+                <Col>
+                    { clients.length ? generateClientList(clients) : "No Clients"}
+                </Col>
+                <Col>
+                    { walkSchedule.length ? generateWalkList(walkSchedule) : "No Walks on Schedule"}
+                </Col>
+            </Row>
+        </Container>
     )
 }
 

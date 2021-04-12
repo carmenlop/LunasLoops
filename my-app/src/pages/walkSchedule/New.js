@@ -6,6 +6,7 @@ import AuthModel from '../../models/auth'
 import ClientModel from '../../models/client'
 import { useHistory } from 'react-router-dom'
 import useClients from '../../hooks/useClients'
+import { Button } from 'react-bootstrap'
 
 
 function WalkScheduleNew({props}) {
@@ -66,7 +67,7 @@ function WalkScheduleNew({props}) {
                             {clientOptions(clients)}
                         </select>
                 </div>
-                <input type='submit' value='Save!' />
+                <Button variant='outline-success' type='submit'>Save!</Button>
             </form>
         </div>
     )

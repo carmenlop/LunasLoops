@@ -1,20 +1,50 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useRecoilState } from 'recoil'
+import { userState } from '../../recoil/atoms'
 import WalkScheduleModel from '../../models/walkSchedule'
+import AuthModel from '../../models/auth'
+import ClientModel from '../../models/client'
+import { useHistory } from 'react-router-dom'
+import useClients from '../../hooks/useClients'
+
 
 function WalkScheduleNew({props}) {
-    const [walkDate, setWalkDate] = useState("1")
-    const [startTime, setStartTime] = useState("1")
+    const [walkDate, setWalkDate] = useState("")
+    const [startTime, setStartTime] = useState("")
     const [duration, setDuration] = useState(0)
+    const [clients, fetchClients] = useClients()
+    const [client, setClient] = useState('')
+    const [user, setUser] = useRecoilState(userState)
+    let history = useHistory()
+
+
+
+    useEffect(function () {
+        if (localStorage.getItem('uid')) {
+            AuthModel.verify().then((response) => {
+                setUser(response.user)
+            })
+        }
+    }, [])
+
+    function clientOptions(clients) {
+        return clients.map((client, index) => (
+            <option value={client._id} id={index}>{client.firstName}</option>
+        ))
+    }
+    
 
     function handleSubmit(event) {
         event.preventDefault()
 
-        WalkScheduleModel.create({ walkDate, startTime, duration })
+        WalkScheduleModel.create({ walkDate, startTime, duration, client, user })
             .then(data => {
-                props.history.push('/walk-schedule')
+                history.push('/walk-schedule')
             })
     }
 
+    let pizza = clientOptions(clients)
+    console.log('pizza', pizza)
     return (
         <div>
             <h1>New Walk</h1>
@@ -32,7 +62,13 @@ function WalkScheduleNew({props}) {
                     <label htmlFor='duration'>Duration</label>
                     <input type='text' name='duration' onChange={(e) => setDuration(e.target.value)} value={duration} />
                 </div>
-                <input type="submit" value="Submit" />
+                <div className='form-input'>
+                    <label>Clients:</label>
+                        <select value={client} name='client' onChange={(e) => setClient(e.target.value)}>
+                            {pizza ? pizza : clientOptions}
+                        </select>
+                </div>
+                <input type='submit' value='Save!' />
             </form>
         </div>
     )

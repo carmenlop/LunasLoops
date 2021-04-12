@@ -1,5 +1,9 @@
 /* import 'bootstrap/dist/css/bootstrap.min.css'; */
 
+body {
+  background-image: url(./images/background-photo.jpg);
+}
+
 .App {
   text-align: center;
 }

@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 import AuthModel from '../models/auth'
 
+import { Button } from 'react-bootstrap'
+
 function Register(props) {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
@@ -48,7 +50,7 @@ function Register(props) {
                     />
                 </div>
 
-                <input type='submit' value='Register' />
+                <Button variant='outline-success' type='submit'>Register</Button>
             </form>
         </div>
     )

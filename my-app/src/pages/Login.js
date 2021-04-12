@@ -4,6 +4,7 @@ import AuthModel from '../models/auth'
 
 import { userState } from '../recoil/atoms'
 import { useSetRecoilState } from 'recoil'
+import { Button } from 'react-bootstrap'
 
 function Login(props) {
     const [email, setEmail] = useState("")
@@ -46,7 +47,7 @@ function Login(props) {
                     />
                 </div>
 
-                <input type='submit' value='Login' />
+                <Button variant='outline-success' type='submit'>Log In</Button>
             </form>
         </div>
     )

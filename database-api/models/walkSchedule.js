@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const WalkScheduleSchema = new Schema({
     walkDate: {
-        type: Date,
+        type: String,
         required: true
     },
     startTime: {

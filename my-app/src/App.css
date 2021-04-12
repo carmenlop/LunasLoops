@@ -22,6 +22,12 @@ body {
   opacity: 0.7;
 }
 
+.listContainer {
+  background-color: white;
+  border-radius: 25px;
+  opacity: 0.7;
+}
+
 li {
   list-style-type: none;
 }

@@ -12,9 +12,8 @@ const WalkCard = (props) => {
     
     return (
         <div className='walkCard'>
-            <h3>{props.walkDate}</h3>
-            <h3>{props.startTime}</h3>
-            <h3>{props.duration}</h3>
+            <h4>{props.walkDate} at {props.startTime}</h4>
+            <h4>{props.duration} minutes</h4>
         </div>
     )
 }

@@ -3,6 +3,7 @@ import React from 'react'
 import WalkCard from '../../components/WalkCard'
 import useClients from '../../hooks/useClients'
 import useWalkSchedule from '../../hooks/useWalks'
+import { Container, Row, Col} from 'react-bootstrap'
 
 function WalkScheduleShow(props) {
     const [walkSchedule] = useWalkSchedule(props.match.params.id)
@@ -10,10 +11,14 @@ function WalkScheduleShow(props) {
     const [client] = useClients(walkSchedule.client)
 
     return (
-        <div>
-            <WalkCard {...walkSchedule} />
-            <h3>Client: {client.firstName}</h3>
-        </div>
+        <Container>
+            <Row>
+                <Col>
+                    <h3>Client: {client.firstName}</h3>
+                    <WalkCard {...walkSchedule} />
+                </Col>
+            </Row>
+        </Container>
     )
 }
 

@@ -9,7 +9,7 @@ import WalkCard from '../components/WalkCard'
 import useClients from '../hooks/useClients'
 import useWalkSchedule from '../hooks/useWalks' 
 
-import { Container, Row, Col} from 'react-bootstrap'
+import { Container, Row, Col, Button} from 'react-bootstrap'
 
 const Snapshot = () => {
     const [clients, fetchClients] = useClients()
@@ -43,9 +43,16 @@ const Snapshot = () => {
     return (
         <Container>
             <Row>
-                <Col>Luna's Loops Snapshot Page!!</Col>
-                <Col>{user.username}</Col>
+                <Col className='listContainer'>
+                    <h1>Clients</h1>
+                    <Button variant='outline-success'><Link to='/clients/new'>Add Client!</Link></Button>
+                </Col>
+                <Col className='listContainer'>
+                    <h1>Upcoming Walks</h1>
+                    <Button variant='outline-success'><Link to={'/walk-schedule/new'}>New Walk</Link></Button>
+                </Col>
             </Row>
+            <br></br>
             <Row>
                 <Col>
                     { clients.length ? generateClientList(clients) : "No Clients"}

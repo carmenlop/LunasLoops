@@ -6,7 +6,7 @@ import AuthModel from '../../models/auth'
 import ClientModel from '../../models/client'
 import { useHistory } from 'react-router-dom'
 import useClients from '../../hooks/useClients'
-import { Button } from 'react-bootstrap'
+import { Button, Container, Row, Col } from 'react-bootstrap'
 
 
 function WalkScheduleNew({props}) {
@@ -45,31 +45,37 @@ function WalkScheduleNew({props}) {
     }
 
     return (
-        <div>
-            <h1>New Walk</h1>
-            <form onSubmit={handleSubmit}>
-                <div className='form-input'>
-                    <label htmlFor='walkDate'>Walk Date
-                        <input type='text' name='walkDate' onChange={(e) => setWalkDate(e.target.value)} value={walkDate} />
-                    </label>
-                </div>
-                <div className='form-input'>
-                    <label htmlFor='startTime'>Walk Time</label>
-                    <input type='text' name='startTime' onChange={(e) => setStartTime(e.target.value)} value={startTime} />
-                </div>
-                <div className='form-input'>
-                    <label htmlFor='duration'>Duration</label>
-                    <input type='text' name='duration' onChange={(e) => setDuration(e.target.value)} value={duration} />
-                </div>
-                <div className='form-input'>
-                    <label>Clients:</label>
-                        <select value={client} name='client' onChange={(e) => setClient(e.target.value)}>
-                            {clientOptions(clients)}
-                        </select>
-                </div>
-                <Button variant='outline-success' type='submit'>Save!</Button>
-            </form>
-        </div>
+        <Container>
+            <Row>
+                <Col>
+                    <div className='formStyle'>
+                        <h1>New Walk</h1>
+                        <form onSubmit={handleSubmit}>
+                            <div className='form-input'>
+                                <label htmlFor='walkDate'>Walk Date
+                                    <input type='text' name='walkDate' onChange={(e) => setWalkDate(e.target.value)} value={walkDate} />
+                                </label>
+                            </div>
+                            <div className='form-input'>
+                                <label htmlFor='startTime'>Walk Time</label>
+                                <input type='text' name='startTime' onChange={(e) => setStartTime(e.target.value)} value={startTime} />
+                            </div>
+                            <div className='form-input'>
+                                <label htmlFor='duration'>Duration</label>
+                                <input type='text' name='duration' onChange={(e) => setDuration(e.target.value)} value={duration} />
+                            </div>
+                            <div className='form-input'>
+                                <label>Clients:</label>
+                                    <select value={client} name='client' onChange={(e) => setClient(e.target.value)}>
+                                        {clientOptions(clients)}
+                                    </select>
+                            </div>
+                            <Button variant='outline-success' type='submit'>Save!</Button>
+                        </form>
+                    </div>
+                </Col>
+            </Row>
+        </Container>
     )
 }
 

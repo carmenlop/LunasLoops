@@ -5,7 +5,7 @@ import { useRecoilState } from 'recoil'
 import { userState } from '../recoil/atoms'
 import AuthModel from '../models/auth'
 
-import { Nav } from 'react-bootstrap'
+import { Nav, Navbar } from 'react-bootstrap'
 
 const Header = () => {
     const [user, setUser] = useRecoilState(userState)
@@ -24,35 +24,27 @@ const Header = () => {
     }
 
     return (
-        <Nav className='justify-content-end' activeKey='/home'>
-
+        <Navbar bg='light' variant='light'expand='lg'>
+            <Navbar.Brand><Link to='/'>Luna's Loops</Link></Navbar.Brand>
+            <Navbar.Toggle aria-controls='basic-navbar-nav' />
+            <Navbar.Collapse id='basic-navbar-nav'>
+            <Nav className='mr-auto'>
             { user ? (
                 <>
-                <Nav.Item>
                     <Nav.Link><Link to='/snapshot'>Snapshot</Link></Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
                     <Nav.Link><Link to='/clients'>Clients</Link></Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
                     <Nav.Link><Link to='/walk-schedule'>Walk Schedule</Link></Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
                     <Nav.Link><Link onClick={ logout }>Log Out</Link></Nav.Link>
-                </Nav.Item>
                 </>
             ): (
                 <>
-                <Nav.Item>
                     <Nav.Link><Link to='/login'>Log In</Link></Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
                     <Nav.Link><Link to='/register'>Register</Link></Nav.Link>
-                </Nav.Item>
                 </>
             )}
-
-        </Nav>
+            </Nav>
+            </Navbar.Collapse>
+        </Navbar>
     )
 }
 

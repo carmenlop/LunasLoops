@@ -4,6 +4,28 @@ body {
   background-image: url(./images/background-photo.jpg);
 }
 
+.clientCard {
+  background-color: white;
+  border-radius: 25px;
+  opacity: 0.7;
+}
+
+.walkCard {
+  background-color: white;
+  border-radius: 25px;
+  opacity: 0.7;
+}
+
+.formStyle {
+  background-color: white;
+  border-radius: 25px;
+  opacity: 0.7;
+}
+
+li {
+  list-style-type: none;
+}
+
 .App {
   text-align: center;
 }

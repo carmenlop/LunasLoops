@@ -3,7 +3,7 @@ import React from 'react'
 const ClientCard = (props) => {
 
     return (
-        <div className='ClientCard'>
+        <div className='clientCard'>
             <h3>{props.firstName}</h3>
             <ul>Contact Info:
                 <li>Phone Number: {props.phoneNumber}</li>

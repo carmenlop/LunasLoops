@@ -35,7 +35,7 @@ function NewClient({props}) {
     }
 
     return (
-        <div>
+        <div className='formStyle'>
             <h2>New Client</h2>
             <form onSubmit={handleSubmit}>
                 <div className='form-input'>
